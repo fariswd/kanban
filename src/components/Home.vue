@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import ContentBackLog from '@/components/ContentBackLog'
 import ContentToDo from '@/components/ContentToDo'
 import ContentDoing from '@/components/ContentDoing'
@@ -20,6 +21,14 @@ export default {
     ContentToDo,
     ContentDoing,
     ContentDone
+  },
+  methods: {
+    ...mapActions([
+      'getAllArticles'
+    ])
+  },
+  created () {
+    this.getAllArticles()
   }
 }
 </script>
