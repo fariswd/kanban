@@ -31,6 +31,12 @@ const actions = {
     .on('value', function (snapshot) {
       console.log(snapshot.val())
     })
+    db.ref('/qwes')
+    .set({
+      rty: '123'
+    })
+    db.ref('/qwe')
+    .remove()
     // http.get('/articles')
     // .then(({ data }) => {
     //   commit('setArticles', data)
