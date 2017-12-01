@@ -5,8 +5,7 @@
         <h3 class="panel-title">Back Log</h3>
       </div>
       <div class="panel-body">
-        <board-card />
-        <board-card />
+        <board-card v-for="backLog in backLogs" :data="backLog" :key="index" />
       </div>
     </div>
   </div>
@@ -15,6 +14,7 @@
 <script>
 import BoardCard from '@/components/BoardCard'
 export default {
+  props: ['backLogs'],
   components: {
     BoardCard
   }

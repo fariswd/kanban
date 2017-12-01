@@ -11,24 +11,24 @@
         <div class="modal-body">
           <div class="form-group">
             <label class="control-label" for="title">Title</label>
-            <input class="form-control" id="title" type="text" placeholder="Task Title">
+            <input v-model="newTask.title" class="form-control" id="title" type="text" placeholder="Task Title">
           </div>
           <div class="form-group">
             <label class="control-label" for="description">Description</label>
-            <textarea rows="2" class="form-control" id="description" type="text" placeholder="Task Description"></textarea>
+            <textarea v-model="newTask.description" rows="2" class="form-control" id="description" type="text" placeholder="Task Description"></textarea>
           </div>
           <div class="form-group">
             <label class="control-label" for="point">Point</label>
-            <input class="form-control" id="point" type="number" placeholder="Point">
+            <input v-model="newTask.point" class="form-control" id="point" type="number" placeholder="Point">
           </div>
           <div class="form-group">
             <label class="control-label" for="assign">Assign to</label>
-            <input class="form-control" id="assign" type="text" placeholder="Assign to">
+            <input v-model="newTask.assign" class="form-control" id="assign" type="text" placeholder="Assign to">
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Add Task</button>
+          <button @click="addTask" type="button" class="btn btn-primary" data-dismiss="modal">Add Task</button>
         </div>
       </div>
 
@@ -37,7 +37,27 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
+  data: function () {
+    return {
+      newTask: {
+        title: '',
+        description: '',
+        point: '',
+        assign: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions([
+      'submitTodo'
+    ]),
+    addTask: function () {
+      console.log(this.newTask)
+      this.submitTodo(this.newTask)
+    }
+  }
 }
 </script>
 

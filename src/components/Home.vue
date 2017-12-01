@@ -1,21 +1,29 @@
 <template lang="html">
   <div class="container">
     <div class="row">
-      <content-back-log />
-      <content-to-do />
-      <content-doing />
-      <content-done />
+      <content-back-log :backLogs="backLog" />
+      <content-to-do :toDos="toDo" />
+      <content-doing :doings="doing" />
+      <content-done :dones="done" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import ContentBackLog from '@/components/ContentBackLog'
 import ContentToDo from '@/components/ContentToDo'
 import ContentDoing from '@/components/ContentDoing'
 import ContentDone from '@/components/ContentDone'
 export default {
+  computed: {
+    ...mapState([
+      'backLog',
+      'toDo',
+      'doing',
+      'done'
+    ])
+  },
   components: {
     ContentBackLog,
     ContentToDo,
@@ -24,11 +32,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'getAllArticles'
+      'getAll'
     ])
   },
   created () {
-    this.getAllArticles()
+    this.getAll()
   }
 }
 </script>

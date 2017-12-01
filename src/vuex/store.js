@@ -20,28 +20,38 @@ const state = {
 }
 
 const mutations = {
-  setArticles (state, payload) {
-    state.articles = payload
+  setBacklog (state, payload) {
+    state.backLog = payload
+  },
+  saveTodo (state, payload) {
+    state.backLog.push(payload)
   }
 }
 
 const actions = {
-  getAllArticles ({ commit }) {
+  // db.ref('/qwes')
+  // .set({
+  //   rty: '123'
+  // })
+  // db.ref('/qwe')
+  // .remove()
+  getAll ({ commit }) {
     db.ref('/')
     .on('value', function (snapshot) {
-      console.log(snapshot.val())
+      let backLog = Object.values(snapshot.val().backLog)
+      commit('setBacklog', backLog)
     })
-    db.ref('/qwes')
+  },
+  submitTodo ({ commit }, newTodo) {
+    db.ref('/backLog')
+    .push()
     .set({
-      rty: '123'
+      title: newTodo.title,
+      description: newTodo.description,
+      point: newTodo.point,
+      assign: newTodo.assign
     })
-    db.ref('/qwe')
-    .remove()
-    // http.get('/articles')
-    // .then(({ data }) => {
-    //   commit('setArticles', data)
-    // })
-    // .catch(err => console.log(err))
+    commit('saveTodo', newTodo)
   }
 }
 

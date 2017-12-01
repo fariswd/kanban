@@ -5,8 +5,7 @@
         <h3 class="panel-title">To-Do</h3>
       </div>
       <div class="panel-body">
-        <board-card />
-        <board-card />
+        <board-card v-for="(todo, index) in toDos" :data="todo" :key="index" />
       </div>
     </div>
   </div>
@@ -15,6 +14,7 @@
 <script>
 import BoardCard from '@/components/BoardCard'
 export default {
+  props: ['toDos'],
   components: {
     BoardCard
   }
