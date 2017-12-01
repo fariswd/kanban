@@ -15,6 +15,11 @@
 import BoardCard from '@/components/BoardCard'
 export default {
   props: ['toDos'],
+  data: function () {
+    return {
+      origin: 'todo'
+    }
+  },
   components: {
     BoardCard
   }
