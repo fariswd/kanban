@@ -5,32 +5,35 @@
         <h3 class="panel-title">Back Log</h3>
       </div>
       <div class="panel-body">
-        <board-card v-for="(backLog, index) in backLogs" :details="backLog" :key="index" @detailed-card="getDetails"/>
-        <div class="modal-detail">
-          <div id="detail" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title center">Detail Task: {{ forModalDetails.title }}</h4>
-                </div>
-                <div class="modal-body">
-                  <p><span class="strong">Task description:</span> {{ forModalDetails.description }}</p>
-                  <p><span class="strong">Points:</span> {{ forModalDetails.point }}</p>
-                  <p><span class="strong">Status:</span> {{ forModalDetails.status }}</p>
-                </div>
-                <div class="modal-footer">
-                  <div class="wrapper center" v-if="forModalDetails.status == 'backLog'">
-                    <!-- <span class="pull-left"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span> -->
-                    <span class="fix-mid"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span>
-                    <span class="pull-right"><button @click="sendToDo(forModalDetails)" type="button" class="btn btn-success btn-sm" data-dismiss="modal">To-Do</button></span>
+        <div v-if="backLogs != ''">
+          <board-card v-for="(backLog, index) in backLogs" :details="backLog" :key="index" @detailed-card="getDetails"/>
+          <div class="modal-detail">
+            <div id="detailbacklog" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title center">Detail Task: {{ forModalDetails.title }}</h4>
                   </div>
-                  
+                  <div class="modal-body">
+                    <p><span class="strong">Task description:</span> {{ forModalDetails.description }}</p>
+                    <p><span class="strong">Points:</span> {{ forModalDetails.point }}</p>
+                    <p><span class="strong">Status:</span> {{ forModalDetails.status }}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="wrapper center" v-if="forModalDetails.status == 'backLog'">
+                      <!-- <span class="pull-left"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span> -->
+                      <span class="fix-mid"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span>
+                      <span class="pull-right"><button @click="toToDo(forModalDetails)" type="button" class="btn btn-success btn-sm" data-dismiss="modal">To-Do</button></span>
+                    </div>
+                    
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -52,7 +55,6 @@ export default {
       'toToDo'
     ]),
     getDetails: function ({card}) {
-      console.log(card.title)
       this.forModalDetails = card
     }
   },

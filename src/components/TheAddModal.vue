@@ -55,7 +55,6 @@ export default {
       'submitTodo'
     ]),
     addTask: function () {
-      console.log(this.newTask)
       this.submitTodo(this.newTask)
     }
   }
