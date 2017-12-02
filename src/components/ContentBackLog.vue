@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="col-md-3">
-    <div class="panel panel-danger">
+    <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Back Log</h3>
       </div>
@@ -24,8 +24,8 @@
                   <div class="modal-footer">
                     <div class="wrapper center" v-if="forModalDetails.status == 'backLog'">
                       <!-- <span class="pull-left"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span> -->
-                      <span class="fix-mid"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span>
-                      <span class="pull-right"><button @click="toToDo(forModalDetails)" type="button" class="btn btn-success btn-sm" data-dismiss="modal">To-Do</button></span>
+                      <span class="fix-mid"><button @click="removeCard(forModalDetails)" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
+                      <span class="pull-right"><button @click="toToDo(forModalDetails)" type="button" class="btn btn-warning btn-sm" data-dismiss="modal">To-Do</button></span>
                     </div>
                     
                   </div>
@@ -52,7 +52,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'toToDo'
+      'toToDo',
+      'removeCard'
     ]),
     getDetails: function ({card}) {
       this.forModalDetails = card

@@ -23,8 +23,8 @@
                   </div>
                   <div class="modal-footer">
                     <div class="wrapper center" v-if="forModalDoneDetails.status == 'done'">
-                      <span class="pull-left"><button @click="toDoingFromDone(forModalDoneDetails)" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Doing</button></span>
-                      <span class="pull-right"><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button></span>
+                      <span class="pull-left"><button @click="toDoingFromDone(forModalDoneDetails)" type="button" class="btn btn-info btn-sm" data-dismiss="modal">Doing</button></span>
+                      <span class="fix-mid"><button @click="removeCard(forModalDoneDetails)" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
                       <!-- <span class="pull-right"><button @click="toDone(forModalDetails)" type="button" class="btn btn-success btn-sm" data-dismiss="modal">Done</button></span> -->
                     </div>
                     
@@ -47,16 +47,16 @@ export default {
   props: ['dones'],
   data: function () {
     return {
-      forModalDoneDetails: 'asd'
+      forModalDoneDetails: ''
     }
   },
   methods: {
     ...mapActions([
-      'toDoingFromDone'
+      'toDoingFromDone',
+      'removeCard'
     ]),
     getDetails: function ({card}) {
       this.forModalDoneDetails = card
-      console.log(this.forModalDoneDetails.title)
     }
   },
   components: {
@@ -70,7 +70,7 @@ export default {
   text-align: center;
 }
 .fix-mid {
-  
+  padding-right: 10%;
 }
 .strong {
   font-weight: bold;

@@ -98,6 +98,10 @@ const mutations = {
     })
     db.ref('/doing/' + payload.id)
     .remove()
+  },
+  removeObj (state, payload) {
+    db.ref('/' + payload.status + '/' + payload.id)
+    .remove()
   }
 }
 
@@ -178,6 +182,9 @@ const actions = {
     })
     newToDo.pos = pos
     commit('setDoingToToDo', newToDo)
+  },
+  removeCard ({ commit }, removeObj) {
+    commit('removeObj', removeObj)
   }
 }
 

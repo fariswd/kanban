@@ -18,13 +18,12 @@
       <div v-if="details.status == 'done'">
         <button @click="showDetails" data-toggle="modal" data-target="#detaildone" type="button" name="button">Show Details</button>        
       </div>
-      <!-- <details-data-modal :data="details" /> -->
     </div>
   </div>
 </template>
 
 <script>
-import DetailsDataModal from '@/components/DetailsDataModal'
+
 export default {
   props: ['details'],
   methods: {
@@ -33,9 +32,6 @@ export default {
         card: this.details
       })
     }
-  },
-  components: {
-    DetailsDataModal
   }
 }
 </script>
