@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'
 import Firebase from './firebase'
+import Popover from 'vue-js-popover'
+
+Vue.use(Popover)
 
 Vue.config.productionTip = false
 
@@ -14,6 +17,7 @@ new Vue({
   router,
   store,
   Firebase,
+  Popover,
   template: '<App/>',
   components: { App }
 })

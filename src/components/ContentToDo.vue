@@ -8,7 +8,7 @@
         <div v-if="toDos != ''">
           <board-card v-for="(todo, index) in toDos" :details="todo" :key="index" @detailed-card="getDetails"/>
           <div class="modal-detail">
-            <div id="detailtodo" class="modal fade" role="dialog">
+            <div id="detailtodo" class="modal fade" role="dialog" ref="myDiv">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -23,8 +23,15 @@
                   </div>
                   <div class="modal-footer">
                     <div class="wrapper center" v-if="forModalDetails.status == 'toDo'">
+                      <popover name="confirm-deletion-todo">
+                        <div class="">
+                          Are you sure?
+                        </div>
+                        <span><button @click="deleteCard(forModalDetails)" v-popover.top="{ name: 'confirm-deletion-todo' }" type="button" class="btn btn-danger btn-sm">Yes</button></span>
+                        <span><button type="button" class="btn btn-success btn-sm" v-popover.top="{ name: 'confirm-deletion-todo' }" >No</button></span>
+                      </popover>
                       <span class="pull-left"><button @click="toBackLog(forModalDetails)" type="button" class="btn btn-default btn-sm" data-dismiss="modal">backLog</button></span>
-                      <span><button @click="removeCard(forModalDetails)" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
+                      <span><button v-popover.top="{ name: 'confirm-deletion-todo' }" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
                       <span class="pull-right"><button @click="toDoing(forModalDetails)" type="button" class="btn btn-info btn-sm" data-dismiss="modal">Doing</button></span>
                     </div>
                     
@@ -58,6 +65,11 @@ export default {
     ]),
     getDetails: function ({card}) {
       this.forModalDetails = card
+    },
+    deleteCard: function (card) {
+      // eslint-disable-next-line
+      $('#detailtodo').modal('hide')
+      this.removeCard(card)
     }
   },
   components: {

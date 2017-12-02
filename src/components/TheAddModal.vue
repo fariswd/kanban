@@ -55,7 +55,11 @@ export default {
       'submitTodo'
     ]),
     addTask: function () {
-      this.submitTodo(this.newTask)
+      if (this.newTask.title !== '') {
+        this.submitTodo(this.newTask)
+      } else {
+        console.log('please fill title')
+      }
     }
   }
 }

@@ -23,17 +23,21 @@
                   </div>
                   <div class="modal-footer">
                     <div class="wrapper center" v-if="forModalDoneDetails.status == 'done'">
+                      <popover name="confirm-deletion">
+                        <div class="">
+                          Are you sure?
+                        </div>
+                        <span><button @click="deleteCard(forModalDoneDetails)" v-popover.top="{ name: 'confirm-deletion-todo' }" type="button" class="btn btn-danger btn-sm">Yes</button></span>
+                        <span><button type="button" class="btn btn-success btn-sm" v-popover.top="{ name: 'confirm-deletion' }" >No</button></span>
+                      </popover>
                       <span class="pull-left"><button @click="toDoingFromDone(forModalDoneDetails)" type="button" class="btn btn-info btn-sm" data-dismiss="modal">Doing</button></span>
-                      <span class="fix-mid"><button @click="removeCard(forModalDoneDetails)" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
-                      <!-- <span class="pull-right"><button @click="toDone(forModalDetails)" type="button" class="btn btn-success btn-sm" data-dismiss="modal">Done</button></span> -->
+                      <span class="fix-mid"><button v-popover.top="{ name: 'confirm-deletion' }" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
                     </div>
-                    
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          
+          </div> <!-- end modal -->
         </div>
       </div>
     </div>
@@ -57,6 +61,11 @@ export default {
     ]),
     getDetails: function ({card}) {
       this.forModalDoneDetails = card
+    },
+    deleteCard: function (card) {
+      // eslint-disable-next-line
+      $('#detaildone').modal('hide')
+      this.removeCard(card)
     }
   },
   components: {
