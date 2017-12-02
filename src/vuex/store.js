@@ -22,9 +22,6 @@ const state = {
 const mutations = {
   setBacklog (state, payload) {
     state.backLog = payload
-  },
-  saveTodo (state, payload) {
-    state.backLog.push(payload)
   }
 }
 
@@ -42,16 +39,29 @@ const actions = {
       commit('setBacklog', backLog)
     })
   },
-  submitTodo ({ commit }, newTodo) {
+  submitTodo ({ commit }, newBackLog) {
+    var newKey = db.ref('/backLog').push().key
+    console.log(newKey)
     db.ref('/backLog')
     .push()
     .set({
-      title: newTodo.title,
-      description: newTodo.description,
-      point: newTodo.point,
-      assign: newTodo.assign
+      id: newKey,
+      title: newBackLog.title,
+      description: newBackLog.description,
+      point: newBackLog.point,
+      assign: newBackLog.assign,
+      status: newBackLog.status
     })
-    commit('saveTodo', newTodo)
+  },
+  toToDo ({ commit }, newTodo) {
+    console.log(newTodo.id)
+    console.log('-----------', state.backLog[0].id)
+    console.log('-----------', state.backLog[1].id)
+    let pos = state.backLog.findIndex(function (e) {
+      console.log(e.id)
+      return e.id == newTodo.id
+    })
+    console.log(pos)
   }
 }
 

@@ -45,7 +45,8 @@ export default {
         title: '',
         description: '',
         point: '',
-        assign: ''
+        assign: '',
+        status: 'backLog'
       }
     }
   },

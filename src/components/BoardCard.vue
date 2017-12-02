@@ -1,13 +1,13 @@
 <template lang="html">
   <div class="panel panel-default">
-    <div class="panel-heading title-header">{{ data.title }}</div>
+    <div class="panel-heading title-header">{{ details.title }}</div>
     <div class="panel-body">
-      <p>Point: {{ data.point }}</p>
-      <p>Assigned to: {{ data.assign }}</p>
+      <p>Point: {{ details.point }}</p>
+      <p>Assigned to: {{ details.assign }}</p>
     </div>
     <div class="panel-footer">
-      <button data-toggle="modal" data-target="#detail" type="button" name="button">Show Detail</button>
-      <details-data-modal :details="data" :origin="origin" />
+      <button @click="showDetails" data-toggle="modal" data-target="#detail" type="button" name="button">Show Details</button>
+      <!-- <details-data-modal :data="details" /> -->
     </div>
   </div>
 </template>
@@ -15,10 +15,12 @@
 <script>
 import DetailsDataModal from '@/components/DetailsDataModal'
 export default {
-  props: ['data', 'origin'],
+  props: ['details'],
   methods: {
-    showDetails (position) {
-      console.log(position)
+    showDetails () {
+      this.$emit('detailed-card', {
+        card: this.details
+      })
     }
   },
   components: {
@@ -27,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="css" scope>
+<style lang="css" scoped>
 .title-header {
   font-weight: bold;
 }
