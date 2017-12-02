@@ -1,56 +1,58 @@
 # kanban
 
-> Kanban Realtime useing Vue & Firebase
+> Kanban Realtime useing Vue & Firebase  
 > Access My Kanban Here https://vuevire.firebaseapp.com/
 
 ## File and Folder Structure
+```
 .  
-├── README.md
-├── build
-│   ├── build.js
-│   ├── check-versions.js
-│   ├── utils.js
-│   ├── dev-client.js
-│   ├── vue-loader.conf.js
-│   ├── webpack.base.conf.js
-│   ├── webpack.dev.conf.js
-│   └── webpack.prod.conf.js
-├── config
-│   ├── dev.env.js
-│   ├── index.js
-│   └── prod.env.js
-├── dist
-│   ├── index.html
-│   └── static
-│       ├── css
-│       └── js
-├── index.html
-├── package.json
-├── src
-│   ├── App.vue
-│   ├── assets
-│   │   └── logo.png
-│   ├── components
-│   │   ├── BoardCard.vue
-│   │   ├── ButtonModalDetails.vue
-│   │   ├── ContentBackLog.vue
-│   │   ├── ContentDoing.vue
-│   │   ├── ContentDone.vue
-│   │   ├── ContentToDo.vue
-│   │   ├── DetailsDataModal.vue
-│   │   ├── Home.vue
-│   │   ├── TheAddModal.vue
-│   │   └── TheNavBar.vue
-│   ├── firebase
-│   │   └── index.js
-│   ├── main.js
-│   ├── router
-│   │   └── index.js
-│   ├── vuex
-│   │   └── index.js
-│   └── router
-│       └── index.js
-└── static
+├── README.md  
+├── build  
+│   ├── build.js  
+│   ├── check-versions.js  
+│   ├── utils.js  
+│   ├── dev-client.js  
+│   ├── vue-loader.conf.js  
+│   ├── webpack.base.conf.js  
+│   ├── webpack.dev.conf.js  
+│   └── webpack.prod.conf.js  
+├── config  
+│   ├── dev.env.js  
+│   ├── index.js  
+│   └── prod.env.js  
+├── dist  
+│   ├── index.html  
+│   └── static  
+│       ├── css  
+│       └── js  
+├── index.html  
+├── package.json  
+├── src  
+│   ├── App.vue  
+│   ├── assets  
+│   │   └── logo.png  
+│   ├── components  
+│   │   ├── BoardCard.vue  
+│   │   ├── ButtonModalDetails.vue  
+│   │   ├── ContentBackLog.vue  
+│   │   ├── ContentDoing.vue  
+│   │   ├── ContentDone.vue  
+│   │   ├── ContentToDo.vue  
+│   │   ├── DetailsDataModal.vue  
+│   │   ├── Home.vue  
+│   │   ├── TheAddModal.vue  
+│   │   └── TheNavBar.vue  
+│   ├── firebase  
+│   │   └── index.js  
+│   ├── main.js  
+│   ├── router  
+│   │   └── index.js  
+│   ├── vuex  
+│   │   └── index.js  
+│   └── router  
+│       └── index.js  
+└── static  
+```
 
 ## Build Setup
 
