@@ -7,16 +7,16 @@
     </div>
     <div class="panel-footer">
       <div v-if="details.status == 'backLog'">
-        <button @click="showDetails" data-toggle="modal" data-target="#detailbacklog" type="button" name="button">Show Details</button>
+        <button @click="showDetails" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detailbacklog" type="button" name="button">Show Details</button>
       </div>
       <div v-if="details.status == 'toDo'">
-        <button @click="showDetails" data-toggle="modal" data-target="#detailtodo" type="button" name="button">Show Details</button>
+        <button @click="showDetails" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detailtodo" type="button" name="button">Show Details</button>
       </div>
       <div v-if="details.status == 'doing'">
-        <button @click="showDetails" data-toggle="modal" data-target="#detaildoing" type="button" name="button">Show Details</button>
+        <button @click="showDetails" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detaildoing" type="button" name="button">Show Details</button>
       </div>
       <div v-if="details.status == 'done'">
-        <button @click="showDetails" data-toggle="modal" data-target="#detaildone" type="button" name="button">Show Details</button>        
+        <button @click="showDetails" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detaildone" type="button" name="button">Show Details</button>        
       </div>
     </div>
   </div>

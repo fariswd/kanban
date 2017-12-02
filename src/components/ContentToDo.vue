@@ -44,7 +44,7 @@
                         <span><button @click="confirmNext(forModalDetails)" v-popover.top="{ name: 'confirm-next-todo' }" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Yes</button></span>
                         <span><button type="button" class="btn btn-success btn-sm" v-popover.top="{ name: 'confirm-next-todo' }" >No</button></span>
                       </popover>
-                      <span class="pull-left"><button v-popover.top="{ name: 'confirm-before-todo' }" type="button" class="btn btn-default btn-sm">backLog</button></span>
+                      <span class="pull-left"><button v-popover.top="{ name: 'confirm-before-todo' }" type="button" class="btn btn-default btn-sm">Back Log</button></span>
                       <span><button v-popover.top="{ name: 'confirm-deletion-todo' }" type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Delete</button></span>
                       <span class="pull-right"><button v-popover.top="{ name: 'confirm-next-todo' }" type="button" class="btn btn-info btn-sm">Doing</button></span>
                     </div>

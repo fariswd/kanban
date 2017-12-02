@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <content-back-log :backLogs="backLog" />
       <content-to-do :toDos="toDo" />
