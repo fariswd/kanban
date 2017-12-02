@@ -28,7 +28,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button @click="addTask" type="button" class="btn btn-primary" data-dismiss="modal">Add Task</button>
+          <button @click="addTask" type="button" class="btn btn-primary"">Add Task</button>
         </div>
       </div>
 
@@ -44,7 +44,7 @@ export default {
       newTask: {
         title: '',
         description: '',
-        point: '',
+        point: 0,
         assign: '',
         status: 'backLog'
       }
@@ -57,9 +57,19 @@ export default {
     addTask: function () {
       if (this.newTask.title !== '') {
         this.submitTodo(this.newTask)
+        this.clearStatus()
+        // eslint-disable-next-line
+        $('#add').modal('hide')
       } else {
         console.log('please fill title')
+        this.clearStatus()
       }
+    },
+    clearStatus: function () {
+      this.newTask.title = ''
+      this.newTask.description = ''
+      this.newTask.point = 0
+      this.newTask.assign = ''
     }
   }
 }
