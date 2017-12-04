@@ -1,6 +1,6 @@
 # kanban
 
-> Kanban Realtime useing Vue & Firebase  
+> Kanban Realtime using Vue & Firebase  
 > Access My Kanban Here https://vuevire.firebaseapp.com/
 
 ## File and Folder Structure
