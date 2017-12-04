@@ -47,9 +47,7 @@
 │   ├── main.js  
 │   ├── router  
 │   │   └── index.js  
-│   ├── vuex  
-│   │   └── index.js  
-│   └── router  
+│   └── vuex  
 │       └── index.js  
 └── static  
 ```
